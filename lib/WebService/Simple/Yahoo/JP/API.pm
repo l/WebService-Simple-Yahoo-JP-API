@@ -18,15 +18,15 @@ sub new
 	return $self;	
 }
 
-sub search      { return bless shift, __PACKAGE__.'::Search'; }
-sub map         { return bless shift, __PACKAGE__.'::Map'; }
-sub jlp         { return bless shift, __PACKAGE__.'::Jlp'; }
-sub auctions    { return bless shift, __PACKAGE__.'::Auctions'; }
-sub shopping    { return bless shift, __PACKAGE__.'::Shopping'; }
-sub news        { return bless shift, __PACKAGE__.'::News'; }
-sub chiebukuro  { return bless shift, __PACKAGE__.'::Chiebukuro'; }
-sub dir         { return bless shift, __PACKAGE__.'::Dir'; }
-sub cert        { return bless shift, __PACKAGE__.'::Cert'; }
+sub search     { return bless shift, __PACKAGE__.'::Search'; }
+sub map        { return bless shift, __PACKAGE__.'::Map'; }
+sub jlp        { return bless shift, __PACKAGE__.'::Jlp'; }
+sub auctions   { return bless shift, __PACKAGE__.'::Auctions'; }
+sub shopping   { return bless shift, __PACKAGE__.'::Shopping'; }
+sub news       { return bless shift, __PACKAGE__.'::News'; }
+sub chiebukuro { return bless shift, __PACKAGE__.'::Chiebukuro'; }
+sub dir        { return bless shift, __PACKAGE__.'::Dir'; }
+sub cert       { return bless shift, __PACKAGE__.'::Cert'; }
 
 sub _get
 {
@@ -59,11 +59,16 @@ __END__
 
 =head1 NAME
 
-WebService::Simple::Yahoo::JP::API -
+WebService::Simple::Yahoo::JP::API - Interface to Yahoo! JAPAN Web APIs
 
 =head1 SYNOPSIS
 
+  use Data::Dumper;
   use WebService::Simple::Yahoo::JP::API;
+  use WebService::Simple::Yahoo::JP::API::Search;
+  my $api = WebService::Simple::Yahoo::JP::API->new(appid => "your appid");
+  my $res = $api->search->websearch(query => "Perl");
+  print Dumper $res;
 
 =head1 DESCRIPTION
 
