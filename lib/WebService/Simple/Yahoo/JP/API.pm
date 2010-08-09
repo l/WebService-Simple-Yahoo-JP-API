@@ -18,15 +18,28 @@ sub new
 	return $self;	
 }
 
-sub search     { return bless shift, __PACKAGE__.'::Search'; }
-sub map        { return bless shift, __PACKAGE__.'::Map'; }
-sub jlp        { return bless shift, __PACKAGE__.'::Jlp'; }
-sub auctions   { return bless shift, __PACKAGE__.'::Auctions'; }
-sub shopping   { return bless shift, __PACKAGE__.'::Shopping'; }
-sub news       { return bless shift, __PACKAGE__.'::News'; }
-sub chiebukuro { return bless shift, __PACKAGE__.'::Chiebukuro'; }
-sub dir        { return bless shift, __PACKAGE__.'::Dir'; }
-sub cert       { return bless shift, __PACKAGE__.'::Cert'; }
+sub search     { return shift->_class('::Search'); }
+sub map        { return shift->_class('::Map'); }
+sub jlp        { return shift->_class('::Jlp'); }
+sub auctions   { return shift->_class('::Auctions'); }
+sub shopping   { return shift->_class('::Shopping'); }
+sub news       { return shift->_class('::News'); }
+sub chiebukuro { return shift->_class('::Chiebukuro'); }
+sub dir        { return shift->_class('::Dir'); }
+sub cert       { return shift->_class('::Cert'); }
+
+sub _class
+{
+	my $self = shift;
+	my $subclass = shift;
+	my $class = ref $self;
+	my $superclass = __PACKAGE__;
+	if ($class =~ m/\A$superclass/) {
+		return bless $self, __PACKAGE__.$subclass; 
+	} else {
+		return $self;
+	}
+}
 
 sub _get
 {
@@ -72,7 +85,36 @@ WebService::Simple::Yahoo::JP::API - Interface to Yahoo! JAPAN Web APIs
 
 =head1 DESCRIPTION
 
-WebService::Simple::Yahoo::JP::API is
+WebService::Simple::Yahoo::JP::API module provides an interface to the
+Yahoo! JAPAN Web APIs (Search, Map, Jlp, Auctions, Shopping, News,
+Chiebukuro, Dir, Cert).
+
+=head1 METHODS
+
+=over
+
+=item new()
+
+Create and return a new WebService::Simple::Yahoo::JP::API object.
+"new" Method requires an application ID of Yahoo developper network.
+
+=item search()
+
+=item map()
+
+=item jlp()
+
+=item auctions()
+
+=item shopping()
+
+=item news()
+
+=item chiebukuro()
+
+=item dir()
+
+=item cert()
 
 =head1 AUTHOR
 
