@@ -98,29 +98,68 @@ Chiebukuro, Dir, Cert).
 Create and return a new WebService::Simple::Yahoo::JP::API object.
 "new" Method requires an application ID of Yahoo developper network.
 
+=head2 SUBCLASSING METHODS
+
 =item search()
+
+Change WebService::Simple::Yahoo::JP::API or WebService::Simple::Yahoo::JP::API::I<hoge>
+class to WebService::Simple::Yahoo::JP::API::Search class.
 
 =item map()
 
+Change WebService::Simple::Yahoo::JP::API or WebService::Simple::Yahoo::JP::API::I<hoge>
+class to WebService::Simple::Yahoo::JP::API::Map class.
+
 =item jlp()
+
+Change WebService::Simple::Yahoo::JP::API or WebService::Simple::Yahoo::JP::API::I<hoge>
+class to WebService::Simple::Yahoo::JP::API::Jlp class.
 
 =item auctions()
 
+Change WebService::Simple::Yahoo::JP::API or WebService::Simple::Yahoo::JP::API::I<hoge>
+class to WebService::Simple::Yahoo::JP::API::Auctions class.
+
 =item shopping()
+
+Change WebService::Simple::Yahoo::JP::API or WebService::Simple::Yahoo::JP::API::I<hoge>
+class to WebService::Simple::Yahoo::JP::API::Shopping class.
 
 =item news()
 
+Change WebService::Simple::Yahoo::JP::API or WebService::Simple::Yahoo::JP::API::I<hoge>
+class to WebService::Simple::Yahoo::JP::API::News class.
+
 =item chiebukuro()
+
+Change WebService::Simple::Yahoo::JP::API or WebService::Simple::Yahoo::JP::API::I<hoge>
+class to WebService::Simple::Yahoo::JP::API::Chiebukuro class.
 
 =item dir()
 
+Change WebService::Simple::Yahoo::JP::API or WebService::Simple::Yahoo::JP::API::I<hoge>
+class to WebService::Simple::Yahoo::JP::API::Dir class.
+
 =item cert()
+
+Change WebService::Simple::Yahoo::JP::API or WebService::Simple::Yahoo::JP::API::I<hoge>
+class to WebService::Simple::Yahoo::JP::API::Cert class.
 
 =head1 AUTHOR
 
 AYANOKOUZI, Ryuunosuke E<lt>i38w7i3@yahoo.co.jpE<gt>
 
 =head1 SEE ALSO
+
+L<WebService::Simple::Yahoo::JP::API::Search>
+L<WebService::Simple::Yahoo::JP::API::Map>
+L<WebService::Simple::Yahoo::JP::API::Jlp>
+L<WebService::Simple::Yahoo::JP::API::Auctions>
+L<WebService::Simple::Yahoo::JP::API::Shopping>
+L<WebService::Simple::Yahoo::JP::API::News>
+L<WebService::Simple::Yahoo::JP::API::Chiebukuro>
+L<WebService::Simple::Yahoo::JP::API::Dir>
+L<WebService::Simple::Yahoo::JP::API::Cert>
 
 =head1 LICENSE
 
