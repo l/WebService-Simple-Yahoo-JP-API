@@ -72,7 +72,7 @@ __END__
 
 =head1 NAME
 
-WebService::Simple::Yahoo::JP::API - Interface to Yahoo! JAPAN Web APIs
+WebService::Simple::Yahoo::JP::API - Simple Interface to Yahoo! JAPAN Web APIs
 
 =head1 SYNOPSIS
 
