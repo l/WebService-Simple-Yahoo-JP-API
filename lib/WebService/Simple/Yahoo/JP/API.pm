@@ -152,13 +152,21 @@ AYANOKOUZI, Ryuunosuke E<lt>i38w7i3@yahoo.co.jpE<gt>
 =head1 SEE ALSO
 
 L<WebService::Simple::Yahoo::JP::API::Search>
+
 L<WebService::Simple::Yahoo::JP::API::Map>
+
 L<WebService::Simple::Yahoo::JP::API::Jlp>
+
 L<WebService::Simple::Yahoo::JP::API::Auctions>
+
 L<WebService::Simple::Yahoo::JP::API::Shopping>
+
 L<WebService::Simple::Yahoo::JP::API::News>
+
 L<WebService::Simple::Yahoo::JP::API::Chiebukuro>
+
 L<WebService::Simple::Yahoo::JP::API::Dir>
+
 L<WebService::Simple::Yahoo::JP::API::Cert>
 
 =head1 LICENSE
