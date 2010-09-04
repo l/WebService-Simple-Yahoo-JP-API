@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use URI;
 use base qw(WebService::Simple);
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 __PACKAGE__->config(
 		base_url => 'http://yahooapis.jp/',
 		);
@@ -77,9 +77,16 @@ WebService::Simple::Yahoo::JP::API - Simple Interface to Yahoo! JAPAN Web APIs
 =head1 SYNOPSIS
 
   use Data::Dumper;
+  use WebService::Simple::Parser::XML::Simple;
+  use XML::Simple;
   use WebService::Simple::Yahoo::JP::API;
   use WebService::Simple::Yahoo::JP::API::Search;
-  my $api = WebService::Simple::Yahoo::JP::API->new(appid => "your appid");
+  my $xs = XML::Simple->new( KeyAttr => [], ForceArray => ['Result'] );
+  my $appid = 'hY5jLiqxg667n_2_Ho0Q6L_tRQWDeZT93fTG234MEQUk_eIfu7Q7_Uv48dZB';
+  my $api = WebService::Simple::Yahoo::JP::API->new(
+  appid => $appid,
+  response_parser => WebService::Simple::Parser::XML::Simple->new(xs => $xs),
+  );
   my $res = $api->search->websearch(query => "Perl");
   print Dumper $res;
 
