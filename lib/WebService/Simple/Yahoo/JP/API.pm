@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use URI;
 use base qw(WebService::Simple);
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 __PACKAGE__->config(
 		base_url => 'http://yahooapis.jp/',
 		);
@@ -105,7 +105,11 @@ Chiebukuro, Dir, Cert).
 Create and return a new WebService::Simple::Yahoo::JP::API object.
 "new" Method requires an application ID of Yahoo developper network.
 
+=back
+
 =head2 SUBCLASSING METHODS
+
+=over
 
 =item search()
 
@@ -151,6 +155,8 @@ class to WebService::Simple::Yahoo::JP::API::Dir class.
 
 Change WebService::Simple::Yahoo::JP::API or WebService::Simple::Yahoo::JP::API::I<hoge>
 class to WebService::Simple::Yahoo::JP::API::Cert class.
+
+=back
 
 =head1 AUTHOR
 

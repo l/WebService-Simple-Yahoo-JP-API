@@ -49,6 +49,8 @@ Create and return a new WebService::Simple::Yahoo::JP::API::Search object.
 
 =item blogsearch()
 
+=back
+
 =head1 AUTHOR
 
 AYANOKOUZI, Ryuunosuke E<lt>i38w7i3@yahoo.co.jpE<gt>
