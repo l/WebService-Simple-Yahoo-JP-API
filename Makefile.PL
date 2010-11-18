@@ -4,6 +4,7 @@ all_from 'lib/WebService/Simple/Yahoo/JP/API.pm';
 
 # requires '';
 
+requires('WebService::Simple');
 tests 't/*.t';
 author_tests 'xt';
 

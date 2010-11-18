@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use URI;
 use base qw(WebService::Simple);
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 __PACKAGE__->config(
 		base_url => 'http://yahooapis.jp/',
 		);
