@@ -4,10 +4,19 @@ use strict;
 use warnings;
 use URI;
 use base qw(WebService::Simple);
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 __PACKAGE__->config(
 		base_url => 'http://yahooapis.jp/',
 		);
+
+sub config
+{
+	my $class    = shift;
+	my %args     = @_;
+	my $self = $class->SUPER::config(%args);
+#	$self->{appid} = $args{appid};
+	return $self;	
+}
 
 sub new
 {
