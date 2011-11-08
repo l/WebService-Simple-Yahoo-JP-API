@@ -1,5 +1,6 @@
 package WebService::Simple::Yahoo::JP::API::Auctions;
 use base qw(WebService::Simple::Yahoo::JP::API);
+our $VERSION = '0.01';
 __PACKAGE__->config(
 		base_url => 'http://auctions.yahooapis.jp/AuctionWebService/',
 		);

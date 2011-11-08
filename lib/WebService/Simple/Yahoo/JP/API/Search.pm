@@ -1,12 +1,13 @@
 package WebService::Simple::Yahoo::JP::API::Search;
 use base qw(WebService::Simple::Yahoo::JP::API);
+our $VERSION = '0.01';
 __PACKAGE__->config(
 		base_url => 'http://search.yahooapis.jp/',
 		);
 
-sub websearch { shift->_post('WebSearchService/V1/webSearch', @_); }
-sub imagesearch { shift->_post('ImageSearchService/V1/imageSearch', @_); }
-sub videosearch { shift->_post('VideoSearchService/V1/videoSearch', @_); }
+sub websearch { shift->_post('WebSearchService/V2/webSearch', @_); }
+sub imagesearch { shift->_post('ImageSearchService/V2/imageSearch', @_); }
+sub videosearch { shift->_post('VideoSearchService/V3/videoSearch', @_); }
 sub webunitsearch { shift->_post('AssistSearchService/V1/webunitSearch', @_); }
 sub blogsearch { shift->_get('BlogSearchService/V1/blogSearch', @_); }
 1;
@@ -24,6 +25,7 @@ WebService::Simple::Yahoo::JP::API::Search - Search Subclass for WebService::Sim
   my $api = WebService::Simple::Yahoo::JP::API->new(appid => "your appid");
   my $res = $api->search->websearch(query => "Perl");
   print Dumper $res;
+  print Dumper $res->parse_response;
 
 =head1 DESCRIPTION
 

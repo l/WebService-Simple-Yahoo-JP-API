@@ -1,4 +1,5 @@
 package WebService::Simple::Yahoo::JP::API::Map;
+our $VERSION = '0.01';
 use base qw(WebService::Simple::Yahoo::JP::API);
 __PACKAGE__->config(
 		base_url => '',

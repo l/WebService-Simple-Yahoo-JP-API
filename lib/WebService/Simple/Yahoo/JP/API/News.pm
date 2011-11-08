@@ -1,4 +1,5 @@
 package WebService::Simple::Yahoo::JP::API::News;
+our $VERSION = '0.01';
 use base qw(WebService::Simple::Yahoo::JP::API);
 __PACKAGE__->config(
 		base_url => 'http://news.yahooapis.jp/NewsWebService/',
