@@ -5,32 +5,28 @@ use warnings;
 use URI;
 use base qw(WebService::Simple);
 our $VERSION = '0.10';
-__PACKAGE__->config(
-		base_url => 'http://yahooapis.jp/',
-		);
+__PACKAGE__->config( base_url => 'http://yahooapis.jp/', );
 
-sub config
-{
-	my $class    = shift;
-	my %args     = @_;
-	my $self = $class->SUPER::config(%args);
-	return $self;	
+sub config {
+    my $class = shift;
+    my %args  = @_;
+    my $self  = $class->SUPER::config(%args);
+    return $self;
 }
 
-sub new
-{
-	my $class    = shift;
-	my %args     = @_;
-	my %tmp = ();
-	if (defined $args{appid}) {
-		$tmp{appid} = $args{appid};
-		delete $args{appid};
-	}
-	my $self = $class->SUPER::new(%args);
-	while (my ($key, $val) = each %tmp) {
-		$self->{$key} = $val;
-	}
-	return $self;
+sub new {
+    my $class = shift;
+    my %args  = @_;
+    my %tmp   = ();
+    if ( defined $args{appid} ) {
+        $tmp{appid} = $args{appid};
+        delete $args{appid};
+    }
+    my $self = $class->SUPER::new(%args);
+    while ( my ( $key, $val ) = each %tmp ) {
+        $self->{$key} = $val;
+    }
+    return $self;
 }
 
 sub search     { return shift->_class('::Search'); }
@@ -43,43 +39,44 @@ sub chiebukuro { return shift->_class('::Chiebukuro'); }
 sub dir        { return shift->_class('::Dir'); }
 sub cert       { return shift->_class('::Cert'); }
 
-sub _class
-{
-	my $self = shift;
-	my $subclass = shift;
-	my $class = ref $self;
-	my $superclass = __PACKAGE__;
-	if ($class =~ m/\A$superclass/) {
-		return bless $self, __PACKAGE__.$subclass; 
-	} else {
-		return $self;
-	}
+sub _class {
+    my $self       = shift;
+    my $subclass   = shift;
+    my $class      = ref $self;
+    my $superclass = __PACKAGE__;
+    if ( $class =~ m/\A$superclass/ ) {
+        return bless $self, __PACKAGE__ . $subclass;
+    }
+    else {
+        return $self;
+    }
 }
 
-sub _get
-{
-	my $self = shift;
-	my $extra_path = shift;
-	my $uri = URI->new($self->config->{base_url}.$extra_path);
-	if ($self->{appid}) {
-		$uri->query_form({appid => $self->{appid}, @_}) ;
-	} else {
-		$uri->query_form({@_}) ;
-	}
-	local $self->{base_url} = $uri;
-	return $self->get('');
+sub _get {
+    my $self       = shift;
+    my $extra_path = shift;
+    my $uri        = URI->new( $self->config->{base_url} . $extra_path );
+    if ( $self->{appid} ) {
+        $uri->query_form( { appid => $self->{appid}, @_ } );
+    }
+    else {
+        $uri->query_form( {@_} );
+    }
+    local $self->{base_url} = $uri;
+    return $self->get('');
 }
 
-sub _post
-{
-	my $self = shift;
-	my $extra_path = shift;
-	local $self->{base_url} = $self->config->{base_url};
-	if ($self->{appid}) {
-		return $self->post($extra_path, Content => {appid => $self->{appid}, @_});
-	} else {
-		return $self->post($extra_path, Content => {@_});
-	}
+sub _post {
+    my $self       = shift;
+    my $extra_path = shift;
+    local $self->{base_url} = $self->config->{base_url};
+    if ( $self->{appid} ) {
+        return $self->post( $extra_path,
+            Content => { appid => $self->{appid}, @_ } );
+    }
+    else {
+        return $self->post( $extra_path, Content => {@_} );
+    }
 }
 
 1;
